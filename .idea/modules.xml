@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Meal_Planner.iml" filepath="$PROJECT_DIR$/.idea/modules/Meal_Planner.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Meal Planner (Java)/task/Meal_Planner.Meal_Planner__Java_-task.iml" filepath="$PROJECT_DIR$/.idea/modules/Meal Planner (Java)/task/Meal_Planner.Meal_Planner__Java_-task.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Meal Planner (Java)/task/out/Meal_Planner.Meal_Planner__Java_-task-out.iml" filepath="$PROJECT_DIR$/.idea/modules/Meal Planner (Java)/task/out/Meal_Planner.Meal_Planner__Java_-task-out.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Meal Planner (Java)/task/out/Meal_Planner.Meal_Planner__Java_-task-out.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Meal Planner (Java)/task/out/Meal_Planner.Meal_Planner__Java_-task-out.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Meal Planner (Java)/task/out/Meal_Planner.Meal_Planner__Java_-task-out.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Meal Planner (Java)/task/out/Meal_Planner.Meal_Planner__Java_-task-out.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Meal Planner (Java)/task/Meal_Planner.Meal_Planner__Java_-task.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Meal Planner (Java)/task/Meal_Planner.Meal_Planner__Java_-task.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Meal Planner (Java)/task/Meal_Planner.Meal_Planner__Java_-task.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Meal Planner (Java)/task/Meal_Planner.Meal_Planner__Java_-task.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Meal_Planner.util.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Meal_Planner.util.iml" />
