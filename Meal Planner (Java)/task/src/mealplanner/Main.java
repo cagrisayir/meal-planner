@@ -20,7 +20,7 @@ public class Main {
                 meal = new Dinner();
                 break;
             } else
-                System.out.println("DIFFERENT");
+                System.out.println("Wrong meal category! Choose from: breakfast, lunch, dinner.");
         }
 
         System.out.println("Input the meal's name:");
