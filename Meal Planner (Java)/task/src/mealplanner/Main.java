@@ -3,8 +3,23 @@ package mealplanner;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Meals meal = mealChecker();
+
+        System.out.println("Input the meal's name:");
+        meal.setName(scanner.nextLine());
+
+        System.out.println("Input the ingredients:");
+        String ingres = scanner.nextLine();
+        String[] ingresArray = ingres.split(",");
+        meal.setIngredients(ingresArray);
+
+        printMeal(meal);
+    }
+
+    public static Meals mealChecker() {
         Meals meal;
         System.out.println("Which meal do you want to add (breakfast, lunch, dinner)?");
         String mealStr = scanner.nextLine();
@@ -23,16 +38,7 @@ public class Main {
                 System.out.println("Wrong meal category! Choose from: breakfast, lunch, dinner.");
         }
 
-        System.out.println("Input the meal's name:");
-        meal.setName(scanner.nextLine());
-
-        System.out.println("Input the ingredients:");
-        String ingres = scanner.nextLine();
-        String[] ingresArray = ingres.split(",");
-        meal.setIngredients(ingresArray);
-
-        printMeal(meal);
-
+        return meal;
     }
 
     public static void printMeal(Meals meal) {
