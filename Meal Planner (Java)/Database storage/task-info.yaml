@@ -478,6 +478,96 @@ files:
         }
       }
     learner_created: false
+  - name: src/mealplanner/Dinner.java
+    visible: true
+    text: |
+      package mealplanner;
+      
+      public class Dinner extends Meals {
+          @Override
+          public String getType() {
+              return "dinner";
+          }
+      }
+    learner_created: true
+  - name: src/mealplanner/Meal.java
+    visible: true
+    text: |
+      package mealplanner;
+      
+      public enum Meal {
+          BREAKFAST,
+          LUNCH,
+          DINNER
+      }
+    learner_created: true
+  - name: src/mealplanner/Lunch.java
+    visible: true
+    text: |
+      package mealplanner;
+      
+      public class Lunch extends Meals {
+          @Override
+          public String getType() {
+              return "lunch";
+          }
+      
+      }
+    learner_created: true
+  - name: src/mealplanner/Meals.java
+    visible: true
+    text: |
+      package mealplanner;
+      
+      import java.util.ArrayList;
+      
+      public class Meals {
+          private String name;
+          private ArrayList<String> ingredients;
+      
+          public Meals() {
+              ingredients = new ArrayList<>();
+          }
+      
+          public String getName() {
+              return name;
+          }
+      
+          public void setName(String name) {
+              this.name = name;
+          }
+      
+          public ArrayList<String> getIngredients() {
+              return ingredients;
+          }
+      
+          public void addIngredient(String ingt) {
+              ingredients.add(ingt);
+          }
+      
+          public void setIngredients(String[] ingredients) {
+              for (var i : ingredients) {
+                  addIngredient(i);
+              }
+          }
+      
+          public String getType() {
+              return "MEAL";
+          }
+      }
+    learner_created: true
+  - name: src/mealplanner/Breakfast.java
+    visible: true
+    text: |
+      package mealplanner;
+      
+      public class Breakfast extends Meals {
+          @Override
+          public String getType() {
+              return "breakfast";
+          }
+      }
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/25573#comment
 status: Unchecked
 record: -1
