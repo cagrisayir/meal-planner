@@ -1,13 +1,15 @@
 package mealplanner;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        ArrayList<Meals> allMeals = new ArrayList<>();
+    public static void main(String[] args) throws SQLException {
+        var db = new DatabaseConnect();
+        var connection = db.connect();
         while (true) {
             System.out.println("What would you like to do (add, show, exit)?");
             String input = scanner.nextLine();
@@ -17,20 +19,14 @@ public class Main {
             } else if (input.equals("add")) {
                 Meals meal = mealChecker();
                 mealAdder(meal);
-                allMeals.add(meal);
+                db.insertData(connection, meal);
                 System.out.println("The meal has been added!");
             } else if (input.equals("show")) {
-                showAllMeals(allMeals);
+                db.printData(connection);
             }
         }
-    }
 
-    public static void showAllMeals(ArrayList<Meals> meals) {
-        if (meals.isEmpty())
-            System.out.println("No meals saved. Add a meal first.");
-        for (var meal : meals) {
-            printMeal(meal);
-        }
+        db.closeConnection(connection);
     }
 
     public static void mealAdder(Meals meal) {
@@ -91,14 +87,5 @@ public class Main {
         }
 
         return meal;
-    }
-
-    public static void printMeal(Meals meal) {
-        System.out.println("Category: " + meal.getType());
-        System.out.println("Name: " + meal.getName());
-        System.out.println("Ingredients:");
-        for (var ing : meal.getIngredients()) {
-            System.out.println(ing.trim());
-        }
     }
 }
