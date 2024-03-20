@@ -22,19 +22,20 @@ public class Planner {
                 db.insertData(connection, meal);
                 System.out.println("The meal has been added!");
             } else if (input.equals("show")) {
-                db.printData(connection);
+                String category = categoryChecker();
+                db.printData(connection, category);
             }
         }
 
         db.closeConnection(connection);
     }
 
-    public static void mealAdder(Meals meal) {
+    public void mealAdder(Meals meal) {
         meal.setName(takeMealName());
         meal.setIngredients(ingredientsAdder());
     }
 
-    public static String[] ingredientsAdder() {
+    public String[] ingredientsAdder() {
         System.out.println("Input the ingredients:");
         String[] ingresArray;
         while (true) {
@@ -51,11 +52,11 @@ public class Planner {
         return ingresArray;
     }
 
-    public static boolean checkFormat(String str) {
+    public boolean checkFormat(String str) {
         return !str.matches("^[a-zA-Z ]*$") || str.trim().isEmpty();
     }
 
-    public static String takeMealName() {
+    public String takeMealName() {
         System.out.println("Input the meal's name:");
         String mealName;
         while (true) {
@@ -67,7 +68,7 @@ public class Planner {
         return mealName;
     }
 
-    public static Meals mealChecker() {
+    public Meals mealChecker() {
         Meals meal;
         System.out.println("Which meal do you want to add (breakfast, lunch, dinner)?");
 
@@ -87,5 +88,19 @@ public class Planner {
         }
 
         return meal;
+    }
+
+    private String categoryChecker() {
+        System.out.println("Which category do you want to print (breakfast, lunch, dinner)?");
+        String userInput;
+        while (true) {
+            userInput = scanner.nextLine();
+            if (userInput.equals("breakfast") || userInput.equals("lunch") || userInput.equals("dinner")) {
+                break;
+            } else {
+                System.out.println("Wrong meal category! Choose from: breakfast, lunch, dinner.");
+            }
+        }
+        return userInput;
     }
 }

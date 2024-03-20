@@ -16,8 +16,6 @@ public class DatabaseConnect {
 
     private void createTables(Connection connection) throws SQLException {
         Statement statement = connection.createStatement();
-//        statement.executeUpdate("");
-//        statement.executeUpdate("");
         statement.executeUpdate("CREATE TABLE IF NOT EXISTS meals (" +
                 "category VARCHAR(50)," +
                 "meal VARCHAR(50)," +
@@ -56,7 +54,7 @@ public class DatabaseConnect {
         }
     }
 
-    public void printData(Connection connection) throws SQLException {
+    public void printData(Connection connection, String category) throws SQLException {
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * from meals");
 
@@ -68,8 +66,17 @@ public class DatabaseConnect {
             mealId.add(rs.getInt("meal_id"));
             mealCat.add(rs.getString("category"));
         }
-//        if (mealId.isEmpty()) System.out.println("No meals saved. Add a meal first.");
+        if (mealCat.isEmpty()) {
+            System.out.println("No meals found.");
+            return;
+        }
         Map<Integer, List<String>> mealsWithIng = new HashMap<>();
+
+        if (!mealCat.contains(category)) {
+            System.out.println("No meals found.");
+            return;
+        }
+
         for (var id : mealId) {
             List<String> ings = new ArrayList<>();
             ResultSet newrs = statement.executeQuery("SELECT * from ingredients WHERE meal_id=" + id.toString());
@@ -79,13 +86,16 @@ public class DatabaseConnect {
             mealsWithIng.put(id, ings);
         }
 
+        System.out.println("Category: " + category);
+        System.out.println(" ");
         for (var i = 0; i < mealId.size(); i++) {
-            System.out.println("Category: " + mealCat.get(i));
-            System.out.println("Name: " + mealName.get(i));
-            System.out.println("Ingredients: ");
-            for (var j : mealsWithIng.get(mealId.get(i)))
-                System.out.println(j);
-            System.out.println("");
+            if (category.equals(mealCat.get(i))) {
+                System.out.println("Name: " + mealName.get(i));
+                System.out.println("Ingredients: ");
+                for (var j : mealsWithIng.get(mealId.get(i)))
+                    System.out.println(j.trim());
+                System.out.println("");
+            }
         }
     }
 

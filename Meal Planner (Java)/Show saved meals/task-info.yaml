@@ -445,17 +445,6 @@ files:
           }
       }
     learner_created: true
-  - name: src/mealplanner/Meal.java
-    visible: true
-    text: |
-      package mealplanner;
-      
-      public enum Meal {
-          BREAKFAST,
-          LUNCH,
-          DINNER
-      }
-    learner_created: true
   - name: src/mealplanner/DatabaseConnect.java
     visible: true
     text: |
@@ -630,5 +619,8 @@ files:
     visible: true
     learner_created: true
 feedback_link: https://hyperskill.org/learn/step/25574#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 20 Mar 2024 10:11:07 UTC"
 record: -1
